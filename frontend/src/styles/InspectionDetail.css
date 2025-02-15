@@ -1,21 +1,70 @@
-/* Path: src/components/Inspection/InspectionDetail.css */
+/* Path: src/styles/InspectionDetail.css */
 
 .inspection-detail {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-  }
-  
-  .inspection-detail h2 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-  }
-  
-  .inspection-detail p {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-  }
-  
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.inspection-detail h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.inspection-detail p {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* Issue Logging Form */
+.issue-form {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: #8f8e8e;
+}
+
+.issue-form h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.issue-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.issue-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  min-height: 80px;
+}
+
+.issue-form button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.issue-form button:hover {
+  background-color: var(--secondary-color);
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}

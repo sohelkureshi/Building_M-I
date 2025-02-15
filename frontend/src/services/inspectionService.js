@@ -33,11 +33,19 @@ const getIssuesForInspection = async (inspectionId) => {
   return response.data;
 };
 
+const logIssue = async (issueData) => {
+  const response = await axios.post(`${API_URL}/issue`, issueData, {
+    headers: { Authorization: `Bearer ${getToken()}` },
+  });
+  return response.data;
+};
+
 const inspectionService = {
   getInspections,
   getInspectionById,
   createInspection,
   getIssuesForInspection,
+  logIssue, // Add this line
 };
 
 export default inspectionService;

@@ -2,6 +2,20 @@
 const mongoose = require('mongoose');
 const Inspection = require('../models/Inspection');
 const Issue = require('../models/Issue');
+const multer = require('multer');
+const path = require('path');
+
+// Configure multer for file upload
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/'); // Make sure this directory exists
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
 
 exports.createInspection = async (req, res, next) => {
   try {
@@ -22,7 +36,7 @@ exports.createInspection = async (req, res, next) => {
       return res.status(400).json({ message: 'Invalid scheduled date' });
     }
 
-    // Convert the inspector string (from token) to a valid ObjectId using 'new'
+    // Convert the inspector string to a valid ObjectId using 'new'
     let inspectorId;
     try {
       inspectorId = new mongoose.Types.ObjectId(inspector);
@@ -56,20 +70,43 @@ exports.getInspections = async (req, res, next) => {
   }
 };
 
-exports.logIssue = async (req, res, next) => {
+exports.getInspectionById = async (req, res, next) => {
   try {
-    const { inspectionId, description, imageUrl } = req.body;
-    const newIssue = new Issue({
-      inspection: inspectionId,
-      description,
-      imageUrl,
-    });
-    await newIssue.save();
-    res.status(201).json(newIssue);
+    const { inspectionId } = req.params;
+    console.log("Fetching inspection with ID:", inspectionId);
+    const inspection = await Inspection.findById(inspectionId);
+    console.log("Found inspection:", inspection);
+    if (!inspection) {
+      return res.status(404).json({ message: 'Inspection not found' });
+    }
+    res.json(inspection);
   } catch (error) {
+    console.error("Error in getInspectionById:", error);
     next(error);
   }
 };
+
+exports.logIssue = [
+  upload.single('image'), // Add this middleware for handling file uploads
+  async (req, res) => {
+    try {
+      const { inspectionId, description } = req.body;
+      const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
+
+      const issue = new Issue({
+        inspection: inspectionId,
+        description,
+        imageUrl
+      });
+
+      await issue.save();
+      res.status(201).json(issue);
+    } catch (error) {
+      console.error("Error in logIssue:", error);
+      res.status(500).json({ message: 'Error logging issue', error: error.message });
+    }
+  }
+];
 
 exports.getIssuesForInspection = async (req, res, next) => {
   try {
@@ -77,6 +114,7 @@ exports.getIssuesForInspection = async (req, res, next) => {
     const issues = await Issue.find({ inspection: inspectionId });
     res.json(issues);
   } catch (error) {
+    console.error("Error in getIssuesForInspection:", error);
     next(error);
   }
 };
