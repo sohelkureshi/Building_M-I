@@ -1,0 +1,26 @@
+/* Path: src/components/Report/ReportGenerator.css */
+
+.report-generator {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .report-generator button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .report-generator button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  .report-generator p {
+    color: red;
+    margin-top: 10px;
+  }
+  

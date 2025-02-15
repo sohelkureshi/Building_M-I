@@ -1,0 +1,98 @@
+Below is a detailed narrative of how the web application works from a user’s perspective:
+
+---
+
+### **User Journey & Workflow**
+
+1. **Landing on the Homepage**  
+   - **Overview:**  
+     When a user first visits the site, they land on the homepage. Here, they see a brief overview of the Building Maintenance & Inspection System, its benefits, and a clear call-to-action to either **Log In** or **Register**.
+   - **Navigation:**  
+     The header displays links for Home, Login, and Register.
+
+2. **User Registration or Login**  
+   - **Registration Flow:**  
+     - If the user is new, they click on **Register**.
+     - They are presented with a form asking for details like name, email, password, and role (e.g., inspector or manager).
+     - Once the form is submitted, the system creates a new account, and the user is prompted to log in.
+   - **Login Flow:**  
+     - If the user already has an account, they click on **Login**.
+     - They enter their email and password.
+     - Upon successful authentication, the user receives a token (stored in the browser for session persistence) and is redirected to the **Dashboard**.
+
+3. **Accessing the Dashboard**  
+   - **Dashboard Overview:**  
+     Once logged in, the user is directed to the dashboard. This area is the control center for managing inspections.
+   - **Dashboard Components:**  
+     - **Header:** Displays the site name and navigation links such as Home, Dashboard, Profile, and a Logout button.
+     - **Sidebar:** Provides quick navigation options like “Dashboard Home” and “Create Inspection.”
+     - **Main Content Area:**  
+       - The user sees a list of scheduled inspections with key details (facility ID, scheduled date, assigned inspector, etc.).
+       - Each inspection is clickable, allowing the user to view further details.
+
+4. **Viewing Inspection Details**  
+   - **Inspection Detail Page:**  
+     When a user clicks on an inspection from the dashboard:
+     - They are taken to a detailed view page.
+     - The page shows all relevant information about the inspection including:
+       - **Facility Information:** Such as the facility ID.
+       - **Scheduled Date & Time:** Clearly formatted for easy reading.
+       - **Inspector Details:** Who is assigned to the inspection.
+       - **Inspection Notes:** Any additional comments entered during scheduling.
+     - **Issues Section:**  
+       - Below the inspection details, there is a section listing any issues logged against that inspection.
+       - Each issue includes a description and, if available, an image of the problem.
+       
+5. **Logging an Issue**  
+   - **Issue Reporting:**  
+     - If a problem is identified during an inspection, the user can log an issue directly from the inspection detail page.
+     - They fill in a form that allows them to describe the problem and optionally upload a photo.
+     - Upon submission, the issue is saved and added to the inspection’s issue list.
+   
+6. **Creating a New Inspection**  
+   - **Inspection Creation:**  
+     - From the dashboard sidebar, the user has an option to **Create Inspection**.
+     - Clicking on this link opens a form where the user enters details like:
+       - Facility ID
+       - Scheduled Date and Time
+       - Inspector (by entering the inspector’s identifier)
+       - Additional Notes
+     - After submitting the form, a new inspection record is created, and the user is automatically redirected to the newly created inspection’s detail page for further actions (such as logging issues or generating a report).
+
+7. **Generating a Compliance Report**  
+   - **Report Generation Process:**  
+     - On the inspection detail page, a **Generate Report** button is available.
+     - When the user clicks this button:
+       - The system communicates with the backend to generate a PDF compliance report that includes:
+         - All details of the inspection.
+         - A list of any logged issues (with descriptions and image URLs if provided).
+       - Once the report is generated, it is automatically downloaded to the user’s device.
+   
+8. **Managing User Profile**  
+   - **Profile Page:**  
+     - The header includes a **Profile** link.
+     - When accessed, the profile page displays the user’s information such as name, email, and role.
+     - The user can review or update their details if needed.
+
+9. **Logout**  
+   - **Ending the Session:**  
+     - When the user clicks the **Logout** button in the header:
+       - The system clears the stored authentication token.
+       - The user is redirected back to the login page, ending their session securely.
+
+---
+
+### **Summary of the Workflow**
+
+1. **Visitor:** Lands on the homepage → Chooses to Register or Login.
+2. **New User:** Registers and then logs in.
+3. **Returning User:** Logs in using their credentials.
+4. **Dashboard:** After authentication, the user accesses a dashboard that lists all scheduled inspections.
+5. **Inspection Details:** The user clicks on a specific inspection to view full details, including any reported issues.
+6. **Issue Logging:** If problems are found, the user can log issues by adding descriptions and photos.
+7. **Inspection Creation:** The user can create a new inspection from the dashboard.
+8. **Report Generation:** From the inspection details, the user can generate and download a PDF compliance report.
+9. **Profile Management:** The user can review and update their personal profile.
+10. **Logout:** The user logs out to end their session.
+
+This detailed workflow ensures that facility managers and inspectors have a clear, step-by-step process to manage inspections, log issues, generate reports, and maintain their profiles—all within one unified web application.

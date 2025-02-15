@@ -1,0 +1,21 @@
+/* Path: src/pages/Profile.css */
+
+.profile-page {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+  }
+  
+  .profile-page h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  
+  .profile-page p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  

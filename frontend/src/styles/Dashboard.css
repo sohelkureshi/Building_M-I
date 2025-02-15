@@ -1,0 +1,17 @@
+/* Path: src/pages/Dashboard.css */
+
+.dashboard-page {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dashboard-content {
+    display: flex;
+    margin: 20px 0;
+  }
+  
+  .dashboard-content main {
+    flex: 1;
+    padding: 20px;
+  }
+  

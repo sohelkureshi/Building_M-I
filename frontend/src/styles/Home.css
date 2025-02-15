@@ -1,0 +1,18 @@
+/* Path: src/pages/Home.css */
+
+.home-page {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .home-page h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  
+  .home-page p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+  }
+  

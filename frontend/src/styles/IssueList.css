@@ -1,0 +1,23 @@
+/* Path: src/components/Dashboard/IssueList.css */
+
+.issue-list {
+  margin: 20px 0;
+}
+
+.issue-list h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.issue-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.issue-list ul li {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background-color: #fff;
+}

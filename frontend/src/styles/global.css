@@ -1,0 +1,31 @@
+/* Path: src/styles/global.css */
+
+/* Global Variables & Resets */
+:root {
+  --primary-color: #004080;  /* Deep blue */
+  --secondary-color: #003366; /* Darker blue */
+  --accent-color: #e6e6e6;    /* Light grey for accents */
+  --background-color: #f7f9fc; /* Very light blue/grey background */
+  --text-color: #333;
+  --border-color: #ccc;
+  --font-family: 'Open Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
